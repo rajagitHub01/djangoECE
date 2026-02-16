@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Search Page</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #e3f2fd, #f8f9fa);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .search-box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            width: 650px;
+            transition: 0.3s ease;
+        }
+
+        .search-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .search-input {
+            border-radius: 10px;
+        }
+
+        .table thead {
+            background-color: #0d6efd;
+            color: white;
+        }
+
+        .empty-state {
+            text-align: center;
+            color: #6c757d;
+            margin-top: 20px;
+        }
+
+        .back-btn {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="search-box">
+
+        <!-- Back Button -->
+        <a href="{% url 'afterlogin' %}" class="btn btn-outline-secondary back-btn">
+            <i class="bi bi-arrow-left"></i> Back to Home
+        </a>
+
+        <h3 class="text-center mb-4">🔍 Search Product</h3>
+
+        <!-- Search Form -->
+        <form method="GET" action="{% url 'search_product' %}" class="d-flex mb-4">
+            <input type="text" name="q" class="form-control me-2 search-input" placeholder="Enter Product or Brand"
+                value="{{ query|default:'' }}">
+            <button class="btn btn-primary" type="submit">
+                <i class="bi bi-search"></i> Search
+            </button>
+        </form>
+
+        <!-- Results Section -->
+        {% if products %}
+        <h5 class="mb-3">Search Results:</h5>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Brand</th>
+                        <th>Price</th>
+                        <th colspan="2">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in products %}
+                    <tr>
+                        <td>{{ x.name }}</td>
+                        <td>{{ x.brand }}</td>
+                        <td>₹ {{ x.price }}</td>
+                        <td>
+                            <a href="{% url 'update' x.id %}" class="btn btn-warning btn-sm">
+                                <i class="bi bi-pencil-square"></i> Modify
+                            </a>
+                        </td>
+
+                        <td>
+                            <form method="POST" action="{% url 'delete' x.id %}"
+                                onsubmit="return confirm('Are you sure you want to delete this product?');">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger btn-sm">
+                                    <i class="bi bi-trash"></i> Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        {% elif query %}
+        <div class="empty-state">
+            <i class="bi bi-emoji-frown" style="font-size: 30px;"></i>
+            <p class="mt-2">No product found for "<strong>{{ query }}</strong>"</p>
+        </div>
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>

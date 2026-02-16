@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>About | Product Management System</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f4f6f9;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .hero-section {
+            background: white;
+            padding: 60px 30px;
+            border-radius: 12px;
+        }
+
+        .section-title {
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .feature-box {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-semibold" href="#">Product Management System</a>
+            <div>
+                <a href="/" class="btn btn-outline-secondary me-2">Home</a>
+                <a href="/login" class="btn btn-primary">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-5">
+
+        <div class="hero-section shadow-sm mb-5 text-center">
+            <h2 class="section-title">About This Project</h2>
+            <p class="text-muted">
+                This is a Django-based Product Management System designed to handle
+                user authentication and complete product operations including
+                adding, searching, updating, and deleting products efficiently.
+            </p>
+        </div>
+
+        <!-- Features Section -->
+        <div class="row g-4">
+
+            <div class="col-md-6">
+                <div class="feature-box">
+                    <h5>User Authentication</h5>
+                    <p class="text-muted">
+                        Secure user registration and login system using Django backend,
+                        ensuring protected access to product management features.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="feature-box">
+                    <h5>Product Management</h5>
+                    <p class="text-muted">
+                        Perform full CRUD operations — Create, Read, Update, and Delete —
+                        with an intuitive and responsive user interface.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="feature-box">
+                    <h5>Search Functionality</h5>
+                    <p class="text-muted">
+                        Advanced search system that allows filtering products by name
+                        or brand using Django ORM queries.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="feature-box">
+                    <h5>Modern UI Design</h5>
+                    <p class="text-muted">
+                        Built using Bootstrap 5 with responsive layout,
+                        professional styling, and clean UX principles.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer Note -->
+        <div class="text-center mt-5 mb-4">
+            <p class="text-muted small">
+                Developed as a full-stack learning project to demonstrate backend logic,
+                database handling, and UI integration using Django.
+            </p>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

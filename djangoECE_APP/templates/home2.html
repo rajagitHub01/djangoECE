@@ -1,0 +1,106 @@
+<!-- <html>
+
+<head>
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>Welcome to HOME Page</h1>
+    <h2>Hello {{student.name}}</h2>
+    <a href="/logout">Logout</a>
+    <br>
+    <br>
+    <form method="'GET">
+        <input type="text" name="q" placeholder = "Enter Product or Brand" value="{{query|default:''}}">
+        <button type="submit">Search</button>
+    </form>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home Page</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #e3f2fd, #f8f9fa);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .home-box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            width: 520px;
+            transition: 0.3s ease;
+        }
+
+        .home-box:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            font-weight: 600;
+        }
+
+        h2 {
+            color: #0d6efd;
+            margin-bottom: 30px;
+        }
+
+        .btn-custom {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+
+        .logout-btn {
+            margin-top: 20px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="home-box text-center">
+
+        <h1>Welcome</h1>
+        <h2>Hello {{student.name}} 👋</h2>
+
+        <!-- Action Buttons -->
+        <a href="search_page" class="btn btn-outline-primary btn-custom">
+            <i class="bi bi-search"></i> Search Product
+        </a>
+
+        <!-- <a href="modify_page" class="btn btn-outline-warning btn-custom">
+            <i class="bi bi-pencil-square"></i> Modify Product
+        </a> -->
+
+        <a href="addproduct_page" class="btn btn-outline-success btn-custom">
+            <i class="bi bi-plus-circle"></i> Add Product
+        </a>
+
+        <!-- Logout -->
+        <a href="/logout" class="btn btn-danger logout-btn">
+            <i class="bi bi-box-arrow-right"></i> Logout
+        </a>
+
+    </div>
+
+</body>
+</html>
